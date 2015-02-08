@@ -28,6 +28,12 @@ if(file.exists("screened.txt")){
 rawdt <- paste(df[,1], df[,2])
 dt <- as.POSIXct(rawdt, format = "%d/%m/%Y %H:%M:%S")
 
+# Uncomment this to get rid of locale problems for the dates in
+# Linux-based systems
+# Sys.setlocale("LC_TIME", "C")
+# Uncomment this to get rid of locale problems in Windows
+# Sys.setlocale("LC_TIME", "English")
+
 # Prepare for plot: configure device and organize panels
 png(filename = "plot4.png", height = 480, width = 480,)
 par(mfrow = c(2,2))
@@ -65,9 +71,3 @@ par(mfrow = c(2,2))
 # done plotting panels
 #closing
 dev.off()
-
-
-## and again, I'm sorry that my pngs have chinese labels
-## These code will produce properly labeled graphcs
-## So I'm just going to ask you for a big favor:
-## that you be lenient and ignore them

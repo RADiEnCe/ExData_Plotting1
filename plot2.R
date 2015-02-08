@@ -36,11 +36,12 @@ png(filename = "plot2.png", height = 480, width = 480)
 
 # Plot GlobalActivePower against time
 
-# Although my pictures have weekdays labled in Chinese,
-# these code will produce English-labeled plots when run
-# under an English locale,
-# so I'm going to ask you for a big favor:
-# plese ignore them
+# Uncomment this to get rid of locale problems for the dates in
+# Linux-based systems
+# Sys.setlocale("LC_TIME", "C")
+# Uncomment this to get rid of locale problems in Windows
+# Sys.setlocale("LC_TIME", "English")
+
 plot(dt, df[,3], type = "l",
      ylab = "Global Active Power (kilowatts)", xlab = "")
 dev.off()

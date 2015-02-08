@@ -31,6 +31,12 @@ df <- getdata()
 rawdt <- paste(df[,1], df[,2])
 dt <- as.POSIXct(rawdt, format = "%d/%m/%Y %H:%M:%S")
 
+# Uncomment this to get rid of time locale problems for the dates in
+# Linux-based systems
+# Sys.setlocale("LC_TIME", "C")
+# Uncomment this to get rid of time locale problems in Windows
+# Sys.setlocale("LC_TIME", "English")
+
 # Open PNG device
 png(filename = "plot3.png", height = 480, width = 480)
 
